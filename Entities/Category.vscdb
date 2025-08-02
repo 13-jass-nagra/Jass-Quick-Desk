@@ -1,0 +1,37 @@
+{
+  "name": "Category",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Category name"
+    },
+    "description": {
+      "type": "string",
+      "description": "Category description"
+    },
+    "color": {
+      "type": "string",
+      "enum": [
+        "blue",
+        "green",
+        "purple",
+        "orange",
+        "red",
+        "yellow",
+        "indigo",
+        "pink"
+      ],
+      "default": "blue",
+      "description": "Category color theme"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether category is active"
+    }
+  },
+  "required": [
+    "name"
+  ]
+}
