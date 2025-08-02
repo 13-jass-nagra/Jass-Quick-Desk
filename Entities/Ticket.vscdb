@@ -1,0 +1,98 @@
+{
+  "name": "Ticket",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Ticket subject/title"
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed description of the issue"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "open",
+        "in_progress",
+        "resolved",
+        "closed"
+      ],
+      "default": "open",
+      "description": "Current ticket status"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "urgent"
+      ],
+      "default": "medium",
+      "description": "Ticket priority level"
+    },
+    "category_id": {
+      "type": "string",
+      "description": "Reference to category"
+    },
+    "assigned_to": {
+      "type": "string",
+      "description": "Email of assigned support agent"
+    },
+    "requester_email": {
+      "type": "string",
+      "description": "Email of the user who created the ticket"
+    },
+    "attachment_urls": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "URLs of uploaded attachments"
+    },
+    "upvotes": {
+      "type": "number",
+      "default": 0,
+      "description": "Number of upvotes"
+    },
+    "downvotes": {
+      "type": "number",
+      "default": 0,
+      "description": "Number of downvotes"
+    },
+    "voted_by": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "user_email": {
+            "type": "string"
+          },
+          "vote_type": {
+            "type": "string",
+            "enum": [
+              "up",
+              "down"
+            ]
+          }
+        }
+      },
+      "description": "Track who voted and how"
+    },
+    "last_reply": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp of last reply"
+    },
+    "resolution_notes": {
+      "type": "string",
+      "description": "Notes when ticket is resolved"
+    }
+  },
+  "required": [
+    "title",
+    "description",
+    "requester_email"
+  ]
+}

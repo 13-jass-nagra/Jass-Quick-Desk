@@ -1,0 +1,46 @@
+{
+  "name": "Invitation",
+  "type": "object",
+  "properties": {
+    "email": {
+      "type": "string",
+      "description": "Email address to invite"
+    },
+    "role": {
+      "type": "string",
+      "enum": [
+        "user",
+        "admin"
+      ],
+      "default": "user",
+      "description": "Role to assign to the invited user"
+    },
+    "invited_by": {
+      "type": "string",
+      "description": "Email of the user who sent the invitation"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "accepted",
+        "expired"
+      ],
+      "default": "pending",
+      "description": "Invitation status"
+    },
+    "message": {
+      "type": "string",
+      "description": "Optional welcome message"
+    },
+    "expires_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the invitation expires"
+    }
+  },
+  "required": [
+    "email",
+    "invited_by"
+  ]
+}
